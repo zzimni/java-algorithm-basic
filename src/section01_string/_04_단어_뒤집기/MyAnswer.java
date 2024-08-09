@@ -13,7 +13,7 @@ N개의 단어가 주어지면 각 단어를 뒤집어 출력하는 프로그램
 출력)
 N개의 단어를 입력된 순서대로 한 줄에 하나씩 뒤집어서 출력합니다.
 */
-public class Main {
+public class MyAnswer {
 
     public void solution(int n, Scanner kb) { // Scanner kb를 main에서 전달 받아야 runtime error가 안 남 -> 이유 알아오기
         String[] arr = new String[n];
@@ -32,7 +32,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Main T = new Main();
+        MyAnswer T = new MyAnswer();
         Scanner kb = new Scanner(System.in);
         int n = kb.nextInt();
         kb.nextLine();
