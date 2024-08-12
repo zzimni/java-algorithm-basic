@@ -3,7 +3,7 @@ package section01_string._10_가장_짧은_문자거리;
 import java.util.Scanner;
 
 /*
-10. 가장 짧은 문자거리
+10. 가장 짧은 문자거리 ! 못 푼 문제 !
 설명)
 한 개의 문자열 s와 문자 t가 주어지면 문자열 s의 각 문자가 문자 t와 떨어진 최소거리를 출력하는 프로그램을 작성하세요.
 
@@ -17,10 +17,17 @@ import java.util.Scanner;
 public class MyAnswer {
     public void solution(String str, char c) {
         char[] charArr = str.toCharArray();
+        int[] intArr = new int[charArr.length];
         for(int i = 0; i < charArr.length; i++) {
             if(charArr[i] == c) {
-                charArr[i]=0;
+                for(int r = i ; r < charArr.length; r++) {
+                    intArr[r] = r-i;
+                }
+                for(int l = 0; l<i; l++){
+                    intArr[l] = i-l;
+                }
             }
+            // 이렇게 하면 해당 문자가 있는 위치마다 왼/오로 또 다시 for문 돌려야해서 복잡해지는듯
         }
     }
 
