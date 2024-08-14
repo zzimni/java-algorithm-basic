@@ -1,6 +1,7 @@
 package section02_array._06_뒤집은_소수;
 
 import java.util.Scanner;
+
 /*
 6. 뒤집은 소수
 
@@ -17,11 +18,33 @@ N개의 자연수가 입력되면 각 자연수를 뒤집은 후 그 뒤집은 �
 첫 줄에 뒤집은 소수를 출력합니다. 출력순서는 입력된 순서대로 출력합니다.
 */
 public class MyAnswer {
-    public int solution(int[] arr){
-        for(int i = 0; i < arr.length; i++){
-
+    public String solution(int[] arr) {
+        int[] rvsArr = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            char[] str = String.valueOf(arr[i]).toCharArray();
+            String newStr = "";
+            for (int j = str.length - 1; j >= 0; j--) {
+                newStr += str[j];
+            }
+            rvsArr[i] = Integer.parseInt(newStr);
         }
-        return 0;
+        String answer = "";
+        for (int i = 0; i < rvsArr.length; i++) {
+            if (rvsArr[i] == 2) {
+                answer += rvsArr[i] + " ";
+            } else {
+                for (int j = 2; j < rvsArr[i]; j++) {
+                    if (rvsArr[i] % j == 0) {
+                        break;
+                    } else if (j == rvsArr[i] - 1) {
+                        answer += rvsArr[i] + " ";
+                        break;
+                    }
+                }
+            }
+        }
+
+        return answer;
     }
 
     public static void main(String[] args) {
@@ -29,7 +52,7 @@ public class MyAnswer {
         int n = kb.nextInt();
         kb.nextLine();
         int[] arr = new int[n];
-        for(int i = 0; i < n; i++){
+        for (int i = 0; i < n; i++) {
             arr[i] = kb.nextInt();
         }
         MyAnswer T = new MyAnswer();
